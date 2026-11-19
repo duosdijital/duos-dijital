@@ -3,32 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Duos Dijital | Yapay Zeka ile Web Sitesi ve Otomasyon</title>
-  <meta name="description" content="Duos Dijital: Otel, villa ve işletmeler için 7/24 yapay zeka rezervasyon asistanı, sohbet botları ve modern web siteleri." />
+  <title>Duos Dijital | 7/24 Yapay Zeka Rezervasyon Asistanı ve Modern Web Siteleri</title>
+  <meta name="description" content="Duos Dijital: Otel, villa, bungalov ve işletmeler için gece gündüz saniyesinde yanıt veren yapay zeka asistanı, modern web siteleri ve otomasyonlar. Ücretsiz demo için hemen yazın." />
+  <meta name="theme-color" content="#06060c" />
+  <meta property="og:title" content="Duos Dijital | Gece gelen müşteriyi kaçırmayın" />
+  <meta property="og:description" content="WhatsApp ve Instagram'dan gelen soruları 7/24 saniyesinde yanıtlayan yapay zeka asistanı + modern web sitesi." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=2" />
-  <style>.reveal { opacity: 1 !important; transform: none !important; }</style>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=3" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
-  <div class="bg-glow glow-1"></div>
-  <div class="bg-glow glow-2"></div>
-  <div class="bg-grid"></div>
+  <!-- Arka plan katmanları -->
+  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <!-- ÜST MENÜ -->
   <header class="nav" id="nav">
     <div class="container nav-inner">
       <a href="#" class="logo"><span class="logo-mark">✦</span> Duos<span class="grad">Dijital</span></a>
       <nav class="nav-links" id="navLinks">
-        <a href="#demo">Canlı Örnek Video</a>
+        <a href="#demo">Canlı Demo</a>
+        <a href="#hesap">Kaybınızı Hesaplayın</a>
         <a href="#hizmetler">Hizmetler</a>
-        <a href="#surec">Nasıl Çalışırız</a>
-        <a href="#neden">Neden Biz</a>
+        <a href="#surec">Süreç</a>
         <a href="#paketler">Paketler</a>
         <a href="#sss">SSS</a>
-        <a href="#iletisim" class="btn btn-sm btn-primary">Teklif Al</a>
+        <a href="#iletisim" class="btn btn-sm btn-primary magnetic">Ücretsiz Demo İste</a>
       </nav>
       <button class="menu-btn" id="menuBtn" aria-label="Menüyü aç"><span></span><span></span></button>
     </div>
@@ -37,180 +44,251 @@
   <!-- GİRİŞ -->
   <section class="hero">
     <div class="container hero-inner">
-      <div class="hero-text reveal">
-        <span class="badge"><span class="dot"></span> Yeni projeler için müsaitiz</span>
-        <h1>İşletmenizi <span class="grad">yapay zeka</span> ile dijitale taşıyoruz.</h1>
-        <p class="lead">Modern web siteleri, akıllı sohbet botları ve zaman kazandıran otomasyonlar. Haftalar değil, günler içinde teslim.</p>
-        <div class="hero-cta">
-          <a href="#demo" class="btn btn-primary">1 Dakikalık Örnek Videoyu İzle ▶</a>
-          <a href="#iletisim" class="btn btn-ghost">Ücretsiz Görüşme Planla →</a>
+      <div class="hero-text">
+        <span class="badge reveal"><span class="dot"></span> Bu ay yalnızca 5 yeni tesise kurulum yapıyoruz</span>
+        <h1 class="reveal" data-delay="1">
+          <span class="line">Gece 01:45'te gelen</span>
+          <span class="line">müşteriyi <span class="rotator" id="rotator"><span class="grad">3 saniyede</span></span></span>
+          <span class="line">rezervasyona çeviriyoruz.</span>
+        </h1>
+        <p class="lead reveal" data-delay="2">Otel, villa, bungalov ve yerel işletmeler için WhatsApp ve Instagram'da <b>7/24 yanıt veren yapay zeka asistanı</b> + komisyonsuz <b>modern web sitesi</b>. Siz uyurken satış devam eder.</p>
+        <div class="hero-cta reveal" data-delay="3">
+          <a href="https://wa.me/905352251028?text=Merhaba%2C%20tesisime%20%C3%B6zel%20%C3%BCcretsiz%20demo%20g%C3%B6rmek%20istiyorum." target="_blank" rel="noopener" class="btn btn-primary btn-lg magnetic wa-link">
+            <svg viewBox="0 0 24 24" class="ico"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></svg>
+            WhatsApp'tan Ücretsiz Demo İste
+          </a>
+          <a href="#demo" class="btn btn-ghost btn-lg"><span class="play-dot">▶</span> 1 Dakikalık Videoyu İzle</a>
         </div>
-        <ul class="hero-points">
-          <li>✓ Ücretsiz ön görüşme</li>
-          <li>✓ Şeffaf fiyat</li>
-          <li>✓ Teslim sonrası destek</li>
+        <ul class="hero-points reveal" data-delay="4">
+          <li><i>✓</i> Ücretsiz ön görüşme</li>
+          <li><i>✓</i> 48 saatte kurulum</li>
+          <li><i>✓</i> Beğenmezseniz ödemezsiniz</li>
         </ul>
       </div>
 
-      <div class="hero-visual reveal">
-        <div class="mock">
-          <div class="mock-bar"><i></i><i></i><i></i><span>siteniz.com</span></div>
-          <div class="mock-body">
-            <div class="mock-line w60 shimmer"></div>
-            <div class="mock-line w40 shimmer"></div>
-            <div class="mock-cards">
-              <div class="mock-card"></div><div class="mock-card"></div><div class="mock-card"></div>
+      <!-- Canlı telefon demosu -->
+      <div class="hero-visual reveal" data-delay="2">
+        <div class="phone tilt" id="heroPhone">
+          <div class="phone-notch"></div>
+          <div class="phone-head">
+            <div class="ph-avatar">7/24</div>
+            <div>
+              <b>Tesis Rezervasyon Asistanı</b>
+              <small id="phoneStatus">çevrimiçi</small>
             </div>
-            <div class="mock-line w80 shimmer"></div>
+            <span class="ph-speed">⚡ 2.4 sn</span>
           </div>
+          <div class="phone-body" id="chatBody"></div>
         </div>
         <div class="float-card fc-1">
-          <span class="fc-icon">⚡</span>
-          <div><b>3 gün</b><small>ortalama teslim</small></div>
+          <span class="fc-icon">🔔</span>
+          <div><b>Yeni rezervasyon</b><small>+16.500 TL · 01:47</small></div>
         </div>
         <div class="float-card fc-2">
-          <span class="fc-icon">🤖</span>
-          <div><b>7/24</b><small>yanıt veren bot</small></div>
+          <span class="fc-icon">🌙</span>
+          <div><b>Siz uyurken</b><small>12 soru yanıtlandı</small></div>
+        </div>
+        <div class="float-card fc-3">
+          <span class="fc-icon">⚡</span>
+          <div><b>3 sn</b><small>ortalama yanıt</small></div>
+        </div>
+      </div>
+    </div>
+    <a href="#demo" class="scroll-hint" aria-label="Aşağı kaydır"><span></span></a>
+  </section>
+
+  <!-- KAYAN ŞERİT -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>7/24 Rezervasyon Asistanı</span><b>✦</b><span>Modern Web Sitesi</span><b>✦</b><span>WhatsApp &amp; Instagram Botu</span><b>✦</b><span>Komisyonsuz Rezervasyon</span><b>✦</b><span>E-posta Otomasyonu</span><b>✦</b><span>SEO &amp; Google Görünürlüğü</span><b>✦</b>
+      <span>7/24 Rezervasyon Asistanı</span><b>✦</b><span>Modern Web Sitesi</span><b>✦</b><span>WhatsApp &amp; Instagram Botu</span><b>✦</b><span>Komisyonsuz Rezervasyon</span><b>✦</b><span>E-posta Otomasyonu</span><b>✦</b><span>SEO &amp; Google Görünürlüğü</span><b>✦</b>
+    </div>
+  </div>
+
+  <!-- SORUN -->
+  <section class="section problem">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Gerçek Sorun</span>
+        <h2>Müşteriniz <span class="strike">beklemez</span>. Rakibinize yazar.</h2>
+        <p>Misafirlerin büyük kısmı ilk yanıt veren tesise rezervasyon yapar. Sabah dönüş yaptığınızda çoğu zaman çok geçtir.</p>
+      </div>
+      <div class="timeline-compare">
+        <div class="tc-col bad reveal">
+          <div class="tc-head"><span class="tc-dot red"></span> Klasik düzen</div>
+          <div class="tc-row"><time>01:15</time><p>“Hafta sonu jakuzili bungalov müsait mi?”</p></div>
+          <div class="tc-row"><time>01:38</time><p>“Kimse yok mu? Başka yere bakacağım.”</p></div>
+          <div class="tc-row"><time>09:15</time><p>“Günaydın, mesajınızı yeni gördük…”</p></div>
+          <div class="tc-row lost"><time>09:16</time><p>“Başka tesisten ayırttık, teşekkürler.”</p></div>
+          <div class="tc-result red">− 22.000 TL kaçtı</div>
+        </div>
+        <div class="tc-vs reveal">VS</div>
+        <div class="tc-col good reveal">
+          <div class="tc-head"><span class="tc-dot green"></span> Duos Dijital asistanıyla</div>
+          <div class="tc-row"><time>01:45</time><p>“14-17 Kasım, 2 kişi, fiyat nedir?”</p></div>
+          <div class="tc-row bot"><time>01:45</time><p>Müsait 2 seçenek + net fiyat (2.4 sn)</p></div>
+          <div class="tc-row bot"><time>01:46</time><p>Oda fotoğrafları otomatik gönderildi</p></div>
+          <div class="tc-row won"><time>01:47</time><p>Ön rezervasyon alındı, size bildirildi</p></div>
+          <div class="tc-result green">+ 16.500 TL kazanıldı</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- KAYAN ŞERİT -->
-  <div class="marquee">
-    <div class="marquee-track">
-      <span>7/24 Otel Rezervasyon Asistanı</span><span>✦</span><span>Web Sitesi</span><span>✦</span><span>WhatsApp & Instagram Botu</span><span>✦</span><span>E-posta Otomasyonu</span><span>✦</span><span>SEO</span><span>✦</span><span>Sosyal Medya Otomasyonu</span><span>✦</span><span>Komisyonsuz Rezervasyon</span><span>✦</span>
-      <span>7/24 Otel Rezervasyon Asistanı</span><span>✦</span><span>Web Sitesi</span><span>✦</span><span>WhatsApp & Instagram Botu</span><span>✦</span><span>E-posta Otomasyonu</span><span>✦</span><span>SEO</span><span>✦</span><span>Sosyal Medya Otomasyonu</span><span>✦</span><span>Komisyonsuz Rezervasyon</span><span>✦</span>
-    </div>
-  </div>
-
-  <!-- CANLI DEMO VİDEO BÖLÜMÜ -->
+  <!-- CANLI DEMO VİDEO -->
   <section id="demo" class="section section-alt">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">Canlı Örnek • Otel, Villa & Bungalov</span>
-        <h2>Gece gelen müşteriyi 3 saniyede nasıl bağlıyoruz?</h2>
-        <p>WhatsApp ve Instagram üzerinden gelen tarih, müsaitlik, fiyat ve fotoğraf sorularını 7/24 saniyesinde yanıtlayan yapay zeka rezervasyon asistanımızın 1 dakikalık örnek videosu.</p>
+        <span class="eyebrow">Canlı Örnek · Otel, Villa &amp; Bungalov</span>
+        <h2>1 dakikada sistemi <span class="grad">kendi gözünüzle</span> görün</h2>
+        <p>Gece gelen bir misafirin sorusundan rezervasyon bildirimine kadar tüm akış, gerçek zamanlı.</p>
       </div>
-      <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:center;max-width:980px;margin:0 auto;">
-        <div style="text-align:center;">
-          <video src="rezervasyon_asistani_demo.mp4" controls playsinline preload="metadata" style="width:100%;max-width:360px;border-radius:24px;border:2px solid rgba(124,92,255,.5);box-shadow:0 30px 70px -20px rgba(124,92,255,.45);background:#000;"></video>
+      <div class="demo-grid">
+        <div class="video-wrap reveal">
+          <div class="video-frame">
+            <video id="demoVideo" src="rezervasyon_asistani_demo.mp4" poster="video_kapak.jpg" controls playsinline preload="metadata"></video>
+            <button class="video-play" id="videoPlay" aria-label="Videoyu oynat"><span>▶</span></button>
+          </div>
+          <div class="video-ring"></div>
         </div>
-        <div style="display:grid;gap:18px;">
-          <div class="card" style="padding:22px;">
-            <h3 style="margin-bottom:6px;">⚡ Gece 01:45'te Saniyesinde Fiyat</h3>
-            <p>Misafir bekletilmez; giriş-çıkış tarihine ve kişi sayısına göre müsait odaları güncel fiyatıyla anında listeler.</p>
+        <div class="demo-features">
+          <div class="feature reveal">
+            <div class="f-ico">⚡</div>
+            <div><h3>Gece 01:45'te saniyesinde fiyat</h3><p>Tarihe ve kişi sayısına göre müsait odaları güncel fiyatıyla anında listeler. Misafir bekletilmez.</p></div>
           </div>
-          <div class="card" style="padding:22px;">
-            <h3 style="margin-bottom:6px;">📸 Otomatik Oda ve Tesis Fotoğrafı</h3>
-            <p>Misafir fotoğraf veya özellik (şömine, jakuzi, kahvaltı) sorduğunda tesisinizin gerçek görsellerini sohbet içinde gönderir.</p>
+          <div class="feature reveal">
+            <div class="f-ico">📸</div>
+            <div><h3>Otomatik oda ve tesis fotoğrafı</h3><p>Şömine, jakuzi, kahvaltı sorulduğunda tesisinizin gerçek görsellerini sohbet içinde paylaşır.</p></div>
           </div>
-          <div class="card" style="padding:22px;">
-            <h3 style="margin-bottom:6px;">🔔 Hazır Müşteri Bildirimi</h3>
-            <p>Ciddi misafirin iletişim bilgisini alıp ön rezervasyonu hazır şekilde telefonunuza düşürür. Tek bir kaçan müşteriyi kurtardığında tüm maliyetini çıkarır.</p>
+          <div class="feature reveal">
+            <div class="f-ico">🔔</div>
+            <div><h3>Hazır müşteri telefonunuza düşer</h3><p>Ciddi misafirin bilgilerini alır, ön rezervasyonu hazırlayıp size bildirir. Tek bir kurtarılan müşteri maliyeti çıkarır.</p></div>
           </div>
-          <a href="#iletisim" class="btn btn-primary" style="justify-self:start;">Tesisinize Özel Ücretsiz Demo İsteyin →</a>
+          <a href="https://wa.me/905352251028?text=Merhaba%2C%20videoyu%20izledim.%20Tesisime%20%C3%B6zel%20%C3%BCcretsiz%20demo%20istiyorum." target="_blank" rel="noopener" class="btn btn-primary magnetic reveal">Tesisime Özel Ücretsiz Demo İstiyorum →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KAYIP HESAPLAYICI -->
+  <section id="hesap" class="section">
+    <div class="container">
+      <div class="calc reveal">
+        <div class="calc-left">
+          <span class="eyebrow">30 Saniyelik Hesap</span>
+          <h2>Geç yanıt size ayda <span class="grad">ne kadara</span> mal oluyor?</h2>
+          <p>Kaydırıcıları kendi tesisinize göre ayarlayın. Sonuç sizi şaşırtabilir.</p>
+          <label class="range">
+            <span>Ayda geç yanıt yüzünden kaçan müşteri <b id="lostOut">4</b></span>
+            <input type="range" id="lostIn" min="1" max="30" value="4" />
+          </label>
+          <label class="range">
+            <span>Ortalama rezervasyon tutarı <b id="priceOut">15.000 TL</b></span>
+            <input type="range" id="priceIn" min="1000" max="60000" step="500" value="15000" />
+          </label>
+        </div>
+        <div class="calc-right">
+          <small>Aylık tahmini kayıp</small>
+          <div class="calc-big" id="calcMonth">60.000 TL</div>
+          <div class="calc-year">Yıllık: <b id="calcYear">720.000 TL</b></div>
+          <div class="calc-note">Asistan bu müşterilerin yalnızca <b>1 tanesini</b> kurtarsa bile kendini ilk ay amorti eder.</div>
+          <a href="#" id="calcWa" target="_blank" rel="noopener" class="btn btn-primary btn-block magnetic">Bu kaybı durdurmak istiyorum →</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- HİZMETLER -->
-  <section id="hizmetler" class="section">
+  <section id="hizmetler" class="section section-alt">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Hizmetler</span>
-        <h2>Sizin için neler yapabiliriz?</h2>
-        <p>Yapay zekayı doğru araçlarla birleştirip işinizi büyütecek çözümler kuruyoruz.</p>
+        <h2>İşinizi büyüten <span class="grad">dijital ekip</span>, tek adreste</h2>
+        <p>Yapay zekayı doğru araçlarla birleştirip size zaman ve müşteri kazandıran sistemler kuruyoruz.</p>
       </div>
-
-      <div class="services">
-        <article class="card reveal">
-          <div class="icon">🌐</div>
-          <h3>Yapay Zeka ile Web Sitesi</h3>
-          <p>Kurumsal site, kişisel sayfa ya da açılış sayfası. Mobil uyumlu, hızlı ve Google'da bulunabilir.</p>
-          <ul><li>Modern tasarım</li><li>Mobil uyum</li><li>Temel SEO</li></ul>
+      <div class="bento">
+        <article class="b-card b-wide spot reveal">
+          <div class="b-ico">🤖</div>
+          <h3>7/24 Yapay Zeka Rezervasyon Asistanı</h3>
+          <p>WhatsApp ve Instagram'dan gelen tarih, fiyat, müsaitlik ve fotoğraf sorularını saniyesinde, sizin üslubunuzla yanıtlar. Ciddi müşteriyi size aktarır.</p>
+          <div class="chips"><span>WhatsApp</span><span>Instagram DM</span><span>Web sohbet</span><span>Size özel eğitim</span></div>
         </article>
-        <article class="card reveal">
-          <div class="icon">💬</div>
-          <h3>Sohbet ve WhatsApp Botu</h3>
-          <p>Müşteri sorularını gece gündüz yanıtlayan, randevu ve sipariş alan akıllı asistanlar.</p>
-          <ul><li>7/24 yanıt</li><li>Instagram ve WhatsApp</li><li>Size özel eğitim</li></ul>
+        <article class="b-card spot reveal">
+          <div class="b-ico">🌐</div>
+          <h3>Modern Web Sitesi</h3>
+          <p>Hızlı, mobil uyumlu, Google'da bulunabilir. Komisyonsuz rezervasyon için tasarlanır.</p>
         </article>
-        <article class="card reveal">
-          <div class="icon">⚙️</div>
+        <article class="b-card spot reveal">
+          <div class="b-ico">⚙️</div>
           <h3>İş Otomasyonu</h3>
-          <p>Tekrar eden işleri makineye bırakın. E-posta, tablo, form ve bildirimler kendiliğinden akar.</p>
-          <ul><li>E-posta yanıtları</li><li>Tablo ve rapor</li><li>Müşteri takibi</li></ul>
+          <p>E-posta, tablo, form, bildirim. Tekrar eden işler kendiliğinden akar.</p>
         </article>
-        <article class="card reveal">
-          <div class="icon">📈</div>
-          <h3>SEO ve Görünürlük</h3>
-          <p>Sitenizin hem Google'da hem de yapay zeka arama araçlarında öne çıkması için düzenleme.</p>
-          <ul><li>Anahtar kelime</li><li>Hız iyileştirme</li><li>İçerik önerisi</li></ul>
+        <article class="b-card spot reveal">
+          <div class="b-ico">📈</div>
+          <h3>SEO &amp; Görünürlük</h3>
+          <p>Google'da ve yapay zeka aramalarında öne çıkmanız için düzenleme.</p>
         </article>
-        <article class="card reveal">
-          <div class="icon">📱</div>
+        <article class="b-card spot reveal">
+          <div class="b-ico">📱</div>
           <h3>Sosyal Medya Otomasyonu</h3>
-          <p>Paylaşımları planlayan, yorumlara yanıt veren ve içerik üretimini hızlandıran sistemler.</p>
-          <ul><li>Otomatik paylaşım</li><li>Yorum yanıtlama</li><li>İçerik fikirleri</li></ul>
+          <p>Planlı paylaşım, otomatik yorum yanıtı, hızlı içerik üretimi.</p>
         </article>
-        <article class="card card-cta reveal">
-          <div class="icon">✨</div>
+        <article class="b-card b-cta spot reveal">
+          <div class="b-ico">✨</div>
           <h3>Aklınızda başka bir fikir mi var?</h3>
           <p>Anlatın, birlikte en kolay ve en uygun çözümü bulalım.</p>
-          <a href="#iletisim" class="btn btn-primary btn-sm">Fikrimi Anlatayım →</a>
+          <a href="#iletisim" class="btn btn-sm btn-primary">Fikrimi Anlatayım →</a>
         </article>
       </div>
     </div>
   </section>
 
   <!-- SÜREÇ -->
-  <section id="surec" class="section section-alt">
+  <section id="surec" class="section">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Süreç</span>
-        <h2>4 adımda hazır</h2>
+        <h2>4 adımda, <span class="grad">48 saatte</span> yayında</h2>
         <p>Karmaşık değil. Her adımda ne olduğunu bilirsiniz.</p>
       </div>
-      <div class="steps">
-        <div class="step reveal"><span class="step-no">01</span><h3>Tanışma</h3><p>Ücretsiz görüşmede ihtiyacınızı dinliyoruz.</p></div>
-        <div class="step reveal"><span class="step-no">02</span><h3>Plan ve Teklif</h3><p>Net kapsam, net fiyat ve teslim tarihi veriyoruz.</p></div>
-        <div class="step reveal"><span class="step-no">03</span><h3>Yapım</h3><p>Yapay zeka ile hızlı üretiyor, size ara ara gösteriyoruz.</p></div>
-        <div class="step reveal"><span class="step-no">04</span><h3>Teslim ve Destek</h3><p>Yayına alıyor, kullanımını anlatıyor, yanınızda kalıyoruz.</p></div>
+      <div class="steps" id="steps">
+        <div class="steps-line"><span id="stepsFill"></span></div>
+        <div class="step reveal"><span class="step-no">01</span><h3>Tanışma</h3><p>15 dakikalık ücretsiz görüşmede tesisinizi ve ihtiyacınızı dinliyoruz.</p></div>
+        <div class="step reveal"><span class="step-no">02</span><h3>Ücretsiz Demo</h3><p>Tesisinize özel asistanın canlı örneğini hazırlayıp size deneyimletiyoruz.</p></div>
+        <div class="step reveal"><span class="step-no">03</span><h3>Kurulum</h3><p>Beğenirseniz WhatsApp, Instagram ve sitenize entegre ediyoruz.</p></div>
+        <div class="step reveal"><span class="step-no">04</span><h3>Destek</h3><p>Yayına alıyor, kullanımı anlatıyor ve yanınızda kalıyoruz.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- NEDEN BİZ / GÜVEN -->
-  <section id="neden" class="section">
+  <!-- NEDEN BİZ -->
+  <section id="neden" class="section section-alt">
     <div class="container">
-      <div class="section-head reveal">
+      <div class="stats reveal">
+        <div class="stat"><b data-count="48" data-suffix=" sa">0</b><span>içinde kurulum</span></div>
+        <div class="stat"><b data-count="3" data-suffix=" sn">0</b><span>ortalama yanıt süresi</span></div>
+        <div class="stat"><b data-count="24" data-suffix="/7">0</b><span>kesintisiz çalışma</span></div>
+        <div class="stat"><b data-count="0" data-prefix="%">0</b><span>acenta komisyonu</span></div>
+      </div>
+
+      <div class="section-head reveal" style="margin-top:90px">
         <span class="eyebrow">Neden Biz</span>
         <h2>Gönül rahatlığıyla çalışın</h2>
         <p>Size söz verdiklerimizi yazılı olarak da veriyoruz.</p>
       </div>
-
-      <div class="stats reveal">
-        <div class="stat"><b data-count="3">0</b><span>gün ortalama teslim</span></div>
-        <div class="stat"><b data-count="100" data-suffix="%">0</b><span>mobil uyumlu tasarım</span></div>
-        <div class="stat"><b data-count="24" data-suffix="s">0</b><span>içinde dönüş</span></div>
-        <div class="stat"><b data-count="30" data-suffix=" gün">0</b><span>ücretsiz destek</span></div>
-      </div>
-
       <div class="trust">
-        <div class="trust-item reveal"><div class="ti-icon">🛡️</div><div><h3>Memnun kalmazsanız ödemezsiniz</h3><p>Ön tasarımı beğenmezseniz kapora iadesi yapıyoruz.</p></div></div>
-        <div class="trust-item reveal"><div class="ti-icon">📄</div><div><h3>Yazılı anlaşma</h3><p>Kapsam, fiyat ve tarih iş başlamadan yazılı olarak netleşir.</p></div></div>
-        <div class="trust-item reveal"><div class="ti-icon">🔑</div><div><h3>Her şey sizin</h3><p>Site, alan adı ve tüm hesaplar sizin adınıza açılır.</p></div></div>
-        <div class="trust-item reveal"><div class="ti-icon">🧭</div><div><h3>Anlaşılır dil</h3><p>Teknik terimlerle boğmuyoruz. Her şeyi sade anlatıyoruz.</p></div></div>
-        <div class="trust-item reveal"><div class="ti-icon">🎓</div><div><h3>Güncel bilgi</h3><p>Bilgisayar programcılığı eğitimi ve en yeni yapay zeka araçları.</p></div></div>
-        <div class="trust-item reveal"><div class="ti-icon">🤝</div><div><h3>Doğrudan iletişim</h3><p>Aracı yok. İşinizi yapan kişiyle doğrudan konuşursunuz.</p></div></div>
+        <div class="trust-item spot reveal"><div class="ti-icon">🛡️</div><div><h3>Beğenmezseniz ödemezsiniz</h3><p>Ön demoyu beğenmezseniz hiçbir ücret ödemezsiniz.</p></div></div>
+        <div class="trust-item spot reveal"><div class="ti-icon">📄</div><div><h3>Yazılı anlaşma</h3><p>Kapsam, fiyat ve tarih iş başlamadan netleşir.</p></div></div>
+        <div class="trust-item spot reveal"><div class="ti-icon">🔑</div><div><h3>Her şey sizin</h3><p>Site, alan adı ve tüm hesaplar sizin adınıza açılır.</p></div></div>
+        <div class="trust-item spot reveal"><div class="ti-icon">🧭</div><div><h3>Anlaşılır dil</h3><p>Teknik terimlerle boğmuyoruz, her şeyi sade anlatıyoruz.</p></div></div>
+        <div class="trust-item spot reveal"><div class="ti-icon">🎓</div><div><h3>Güncel bilgi</h3><p>Bilgisayar programcılığı eğitimi ve en yeni yapay zeka araçları.</p></div></div>
+        <div class="trust-item spot reveal"><div class="ti-icon">🤝</div><div><h3>Doğrudan iletişim</h3><p>Aracı yok. İşinizi yapan kişiyle doğrudan konuşursunuz.</p></div></div>
       </div>
 
       <div class="founder reveal">
-        <div class="avatar">DD</div>
+        <div class="avatar">DŞ</div>
         <div>
-          <p class="quote">"Amacımız, otel, villa ve yerel işletmelerin de büyük şirketler kadar güçlü yapay zeka asistanlarına ve modern web sitelerine uygun fiyatla sahip olması. Her projeye kendi işimiz gibi bakıyoruz."</p>
+          <p class="quote">“Amacımız, otel, villa ve yerel işletmelerin de büyük zincirler kadar güçlü yapay zeka asistanlarına ve modern web sitelerine uygun fiyatla sahip olması. Her projeye kendi işimiz gibi bakıyoruz.”</p>
           <p class="who"><b>Doğukan Şahin</b> · Duos Dijital Kurucusu, Yapay Zeka ve Otomasyon Uzmanı</p>
         </div>
       </div>
@@ -218,50 +296,65 @@
   </section>
 
   <!-- PAKETLER -->
-  <section id="paketler" class="section section-alt">
+  <section id="paketler" class="section">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Paketler</span>
         <h2>İhtiyacınıza uygun paket</h2>
-        <p>Fiyatlar projeye göre netleşir. Görüşmede size özel teklif veriyoruz.</p>
+        <p>Fiyatlar projeye göre netleşir. Görüşmede size özel, şeffaf teklif veriyoruz.</p>
       </div>
       <div class="pricing">
-        <div class="price reveal">
+        <div class="price spot reveal">
           <h3>Başlangıç</h3>
           <p class="price-desc">Hızlıca internette yer almak isteyenler için.</p>
-          <ul><li>Tek sayfalık modern site</li><li>Mobil uyum</li><li>İletişim ve WhatsApp butonu</li><li>15 gün destek</li></ul>
-          <a href="#iletisim" class="btn btn-ghost">Teklif Al</a>
+          <ul><li>Tek sayfalık modern site</li><li>Mobil uyum</li><li>WhatsApp ve iletişim butonu</li><li>15 gün destek</li></ul>
+          <a href="#iletisim" class="btn btn-ghost btn-block" data-paket="Başlangıç">Teklif Al</a>
         </div>
-        <div class="price featured reveal">
-          <span class="tag">En Çok Tercih Edilen</span>
-          <h3>İşletme</h3>
-          <p class="price-desc">Büyümek isteyen işletmeler için tam paket.</p>
-          <ul><li>Çok sayfalı kurumsal site</li><li>Temel SEO kurulumu</li><li>Yapay zeka sohbet botu</li><li>Google haritalar kaydı</li><li>30 gün destek</li></ul>
-          <a href="#iletisim" class="btn btn-primary">Teklif Al</a>
+        <div class="price featured spot reveal">
+          <span class="tag">⭐ En Çok Tercih Edilen</span>
+          <h3>Tesis Pro</h3>
+          <p class="price-desc">Otel, villa ve bungalovlar için tam satış sistemi.</p>
+          <ul><li>Modern rezervasyon web sitesi</li><li>7/24 yapay zeka rezervasyon asistanı</li><li>WhatsApp + Instagram entegrasyonu</li><li>Otomatik fotoğraf paylaşımı</li><li>Google haritalar ve temel SEO</li><li>30 gün destek</li></ul>
+          <a href="#iletisim" class="btn btn-primary btn-block magnetic" data-paket="Tesis Pro">Ücretsiz Demo İste</a>
         </div>
-        <div class="price reveal">
+        <div class="price spot reveal">
           <h3>Otomasyon</h3>
-          <p class="price-desc">Zaman kazanmak isteyen ekipler için.</p>
+          <p class="price-desc">Zaman kazanmak isteyen işletmeler için.</p>
           <ul><li>İş akışı analizi</li><li>Size özel otomasyon</li><li>WhatsApp veya e-posta asistanı</li><li>Kullanım eğitimi</li><li>30 gün destek</li></ul>
-          <a href="#iletisim" class="btn btn-ghost">Teklif Al</a>
+          <a href="#iletisim" class="btn btn-ghost btn-block" data-paket="Otomasyon">Teklif Al</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- SSS -->
-  <section id="sss" class="section">
+  <section id="sss" class="section section-alt">
     <div class="container narrow">
       <div class="section-head reveal">
         <span class="eyebrow">SSS</span>
         <h2>Sık sorulan sorular</h2>
       </div>
       <div class="faq">
-        <details class="reveal"><summary>Yapay zeka ile yapılan site kaliteli olur mu?</summary><p>Evet. Yapay zekayı hız için kullanıyoruz, son kontrolü ve tasarım kararlarını biz veriyoruz. Böylece hem hızlı hem özenli bir sonuç çıkıyor.</p></details>
-        <details class="reveal"><summary>Bir site ne kadar sürede hazır olur?</summary><p>Tek sayfalık siteler genelde 2 ila 4 gün sürer. Daha kapsamlı işlerde süreyi teklifle birlikte net olarak yazıyoruz.</p></details>
-        <details class="reveal"><summary>Teknik bilgim yok, siteyi ben yönetebilir miyim?</summary><p>Evet. Teslimde size sade bir anlatım yapıyoruz. İsterseniz güncellemeleri de biz üstleniyoruz.</p></details>
-        <details class="reveal"><summary>Ödeme nasıl oluyor?</summary><p>Genelde yarısı başlangıçta, kalanı teslimde alınır. Ön tasarımı beğenmezseniz kaporanızı iade ediyoruz.</p></details>
-        <details class="reveal"><summary>Alan adı ve barındırma kimin adına olur?</summary><p>Her zaman sizin adınıza. Proje bittiğinde tüm erişim bilgileri size teslim edilir.</p></details>
+        <details class="reveal"><summary>Asistan misafirlere yanlış bilgi verir mi?</summary><div class="faq-a"><p>Hayır. Asistan yalnızca sizin verdiğiniz fiyat, müsaitlik ve tesis kurallarıyla konuşur. Emin olmadığı bir soruda misafiri nazikçe size yönlendirir.</p></div></details>
+        <details class="reveal"><summary>Kurulum ne kadar sürer?</summary><div class="faq-a"><p>Asistan ve tek sayfalık siteler genelde 48 saat ile 4 gün arasında hazır olur. Kapsamlı işlerde süreyi teklifle birlikte yazılı veriyoruz.</p></div></details>
+        <details class="reveal"><summary>Teknik bilgim yok, yönetebilir miyim?</summary><div class="faq-a"><p>Kesinlikle. Teslimde sade bir anlatım yapıyoruz. İsterseniz fiyat ve içerik güncellemelerini de biz üstleniyoruz.</p></div></details>
+        <details class="reveal"><summary>Ödeme nasıl oluyor?</summary><div class="faq-a"><p>Önce ücretsiz demoyu görürsünüz. Beğenirseniz yarısı başlangıçta, kalanı teslimde alınır.</p></div></details>
+        <details class="reveal"><summary>Alan adı ve hesaplar kimin adına olur?</summary><div class="faq-a"><p>Her zaman sizin adınıza. Proje bittiğinde tüm erişim bilgileri size teslim edilir.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- SON ÇAĞRI -->
+  <section class="section final-cta-sec">
+    <div class="container">
+      <div class="final-cta reveal">
+        <div class="fc-glow"></div>
+        <h2>Bu gece de bir müşteri yazacak.<br /><span class="grad">Ona kim cevap verecek?</span></h2>
+        <p>Tesisinize özel ücretsiz demoyu 24 saat içinde hazırlayalım. Beğenmezseniz hiçbir ücret yok.</p>
+        <div class="hero-cta center">
+          <a href="https://wa.me/905352251028?text=Merhaba%2C%20tesisime%20%C3%B6zel%20%C3%BCcretsiz%20demo%20istiyorum." target="_blank" rel="noopener" class="btn btn-primary btn-lg magnetic">WhatsApp'tan Hemen Yaz →</a>
+          <a href="tel:+905352251028" class="btn btn-ghost btn-lg">📞 0535 225 10 28</a>
+        </div>
       </div>
     </div>
   </section>
@@ -273,30 +366,32 @@
         <div class="contact-info">
           <span class="eyebrow">İletişim</span>
           <h2>Projenizi konuşalım</h2>
-          <p>Formu doldurun ya da doğrudan yazın. 24 saat içinde dönüş yapıyoruz.</p>
+          <p>Formu doldurun ya da doğrudan yazın. Genellikle birkaç saat içinde, en geç 24 saatte dönüş yapıyoruz.</p>
           <div class="contact-list">
-            <a href="https://wa.me/905000000000" target="_blank" rel="noopener" class="c-item"><span>💬</span><div><small>WhatsApp</small><b>Hızlı Mesaj Gönder</b></div></a>
-            <a href="mailto:sahindogukan118@gmail.com" class="c-item"><span>✉️</span><div><small>E-posta</small><b>sahindogukan118@gmail.com</b></div></a>
-            <a href="https://instagram.com/" target="_blank" rel="noopener" class="c-item"><span>📸</span><div><small>Instagram</small><b>@duosdijital</b></div></a>
+            <a href="https://wa.me/905352251028" target="_blank" rel="noopener" class="c-item"><span>💬</span><div><small>WhatsApp</small><b>0535 225 10 28</b></div></a>
+            <a href="tel:+905352251028" class="c-item"><span>📞</span><div><small>Telefon</small><b>0535 225 10 28</b></div></a>
+            <a href="mailto:duosdijitaldestek@gmail.com" class="c-item"><span>✉️</span><div><small>E-posta</small><b>duosdijitaldestek@gmail.com</b></div></a>
             <div class="c-item"><span>📍</span><div><small>Konum</small><b>Türkiye · Uzaktan 7/24 Hizmet</b></div></div>
           </div>
         </div>
         <form class="contact-form" id="contactForm">
           <label>Adınız<input type="text" name="ad" required placeholder="Adınız Soyadınız" /></label>
+          <label>İşletmeniz<input type="text" name="isletme" placeholder="Tesis / işletme adı" /></label>
           <label>Telefon veya e-posta<input type="text" name="iletisim" required placeholder="Size nasıl ulaşalım?" /></label>
           <label>İlgilendiğiniz hizmet
-            <select name="hizmet">
+            <select name="hizmet" id="hizmetSel">
+              <option>7/24 Rezervasyon Asistanı</option>
               <option>Web Sitesi</option>
-              <option>Sohbet / WhatsApp Botu</option>
+              <option>Tesis Pro (Site + Asistan)</option>
               <option>İş Otomasyonu</option>
               <option>SEO</option>
               <option>Sosyal Medya Otomasyonu</option>
               <option>Henüz emin değilim</option>
             </select>
           </label>
-          <label>Mesajınız<textarea name="mesaj" rows="4" placeholder="Kısaca işinizden ve ihtiyacınızdan bahsedin"></textarea></label>
-          <button type="submit" class="btn btn-primary btn-block">WhatsApp ile Gönder →</button>
-          <p class="form-note">Gönder'e basınca mesajınız hazır şekilde WhatsApp'ta açılır.</p>
+          <label>Mesajınız<textarea name="mesaj" rows="3" placeholder="Kısaca işinizden ve ihtiyacınızdan bahsedin"></textarea></label>
+          <button type="submit" class="btn btn-primary btn-block magnetic">WhatsApp ile Gönder →</button>
+          <p class="form-note">Gönder'e basınca mesajınız hazır şekilde WhatsApp'ta açılır. Dilerseniz <a href="mailto:duosdijitaldestek@gmail.com">e-posta</a> ile de yazabilirsiniz.</p>
         </form>
       </div>
     </div>
@@ -305,17 +400,31 @@
   <footer class="footer">
     <div class="container footer-inner">
       <a href="#" class="logo"><span class="logo-mark">✦</span> Duos<span class="grad">Dijital</span></a>
-      <p>© <span id="year"></span> Duos Dijital. Tüm hakları saklıdır.</p>
+      <p>© <span id="year"></span> Duos Dijital · <a href="tel:+905352251028">0535 225 10 28</a> · <a href="mailto:duosdijitaldestek@gmail.com">duosdijitaldestek@gmail.com</a></p>
       <div class="socials">
+        <a href="https://wa.me/905352251028" target="_blank" rel="noopener">WhatsApp</a>
         <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://tiktok.com/" target="_blank" rel="noopener">TikTok</a>
       </div>
     </div>
   </footer>
 
-  <a href="https://wa.me/905000000000" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+  <!-- Sabit WhatsApp -->
+  <div class="wa-bubble" id="waBubble">
+    <button class="wa-bubble-x" id="waBubbleX" aria-label="Kapat">×</button>
+    <b>Merhaba 👋</b>
+    <p>Tesisinize özel ücretsiz demo ister misiniz? Hemen yazın, birkaç saatte dönelim.</p>
+  </div>
+  <a href="https://wa.me/905352251028?text=Merhaba%2C%20web%20sitenizden%20yaz%C4%B1yorum." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp ile yaz">
+    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></svg>
+  </a>
 
-  <script src="script.js?v=2"></script>
+  <!-- Mobil alt çubuk -->
+  <div class="mobile-bar">
+    <a href="tel:+905352251028">📞 Ara</a>
+    <a href="https://wa.me/905352251028?text=Merhaba%2C%20web%20sitenizden%20yaz%C4%B1yorum." target="_blank" rel="noopener" class="mb-wa">💬 WhatsApp'tan Yaz</a>
+  </div>
+
+  <script src="script.js?v=3"></script>
 </body>
 </html>

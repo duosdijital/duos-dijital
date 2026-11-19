@@ -1,9 +1,9 @@
-# Ajans Web Sitesi
+# Ajans Web Sitesi (Duos Dijital)
 
-Yapay zeka ile web sitesi, sohbet botu ve otomasyon hizmetlerini tanıtan tek sayfalık tanıtım sitesi.
+Yapay zeka ile web sitesi, 7/24 rezervasyon asistanı, sohbet botu ve otomasyon hizmetlerini tanıtan modern tanıtım sitesi.
 
-- Dosyalar: `index.html`, `style.css`, `script.js`. Ek kurulum, anahtar ya da sunucu gerekmez.
+- Dosyalar: `index.html`, `style.css`, `script.js`, `rezervasyon_asistani_demo.mp4`, `video_kapak.jpg`. Ek kurulum, anahtar ya da sunucu gerekmez.
 - Açmak için `index.html` dosyasına çift tıklamak yeterli.
-- İletişim formu mesajı WhatsApp'ta hazır açar. Numara `script.js` başındaki `WHATSAPP_NO` ve `index.html` içindeki `wa.me` linklerindedir.
-- Yer tutucular: marka adı (Şahin Dijital), telefon, e-posta, Instagram kullanıcı adı.
+- İletişim formu ve tüm butonlar mesajı `0535 225 10 28` (`905352251028`) numaralı WhatsApp hattında hazır açar.
+- E-posta adresi: `duosdijitaldestek@gmail.com`.
 - Canlıya almak için klasör olduğu gibi Netlify, Vercel ya da GitHub Pages'e yüklenebilir.
