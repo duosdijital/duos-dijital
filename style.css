@@ -91,8 +91,9 @@ h1, h2, h3 { font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif; lett
 .nav.scrolled { background: rgba(6,6,12,.72); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); border-color: var(--border); padding: 0; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
 .logo { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 22px; display: flex; align-items: center; gap: 8px; letter-spacing: -.02em; }
-.logo-mark { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--grad); color: #fff; font-size: 16px; box-shadow: 0 6px 20px -6px rgba(124,92,255,.8); animation: spin-slow 12s linear infinite; }
-@keyframes spin-slow { 50% { transform: rotate(180deg); } 100% { transform: rotate(360deg); } }
+.logo-mark { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--grad); color: #fff; box-shadow: 0 6px 20px -6px rgba(124,92,255,.85); transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+.logo-mark svg { width: 28px; height: 28px; display: block; }
+.logo:hover .logo-mark { transform: scale(1.07) rotate(-4deg); box-shadow: 0 10px 26px -6px rgba(34,211,238,.9); }
 .nav-links { display: flex; align-items: center; gap: 26px; }
 .nav-links a:not(.btn) { font-size: 14px; font-weight: 500; color: var(--muted); position: relative; transition: color .25s; }
 .nav-links a:not(.btn)::after { content: ""; position: absolute; left: 0; bottom: -6px; height: 2px; width: 100%; background: var(--grad); transform: scaleX(0); transform-origin: right; transition: transform .35s var(--ease); }
