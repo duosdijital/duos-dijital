@@ -17,18 +17,10 @@ navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
   navLinks.classList.remove("open");
 }));
 
-// Kaydırınca beliren öğeler
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    e.target.classList.add("visible");
-    e.target.querySelectorAll("[data-count]").forEach(countUp);
-    io.unobserve(e.target);
-  });
-}, { threshold: 0.15 });
-document.querySelectorAll(".reveal").forEach((el, i) => {
-  el.style.transitionDelay = `${(i % 3) * 0.08}s`;
-  io.observe(el);
+// Tüm öğeleri anında görünür yap ve sayaçları başlat
+document.querySelectorAll(".reveal").forEach((el) => {
+  el.classList.add("visible");
+  el.querySelectorAll("[data-count]").forEach(countUp);
 });
 
 // Sayaç animasyonu
