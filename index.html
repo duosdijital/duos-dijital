@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=4" />
+  <link rel="stylesheet" href="style.css?v=5" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%237c5cff'/%3E%3Cstop offset='100%25' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='28' fill='url(%23g)'/%3E%3Cpath d='M37 26h17a27 27 0 0 1 0 54H37V26zm11 11v32h6a16 16 0 0 0 0-32h-6z' fill='%23d2faff' fill-opacity='.6'/%3E%3Cpath d='M19 20h17a27 27 0 0 1 0 54H19V20zm11 11v32h6a16 16 0 0 0 0-32h-6z' fill='%23fff'/%3E%3C/svg%3E" />
   <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -135,19 +135,56 @@
     </div>
   </section>
 
-  <!-- CANLI DEMO VİDEO -->
+  <!-- CANLI DEMO & TANITIM VİDEOLARI -->
   <section id="demo" class="section section-alt">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">Canlı Örnek · Otel, Villa &amp; Bungalov</span>
-        <h2>1 dakikada sistemi <span class="grad">kendi gözünüzle</span> görün</h2>
-        <p>Gece gelen bir misafirin sorusundan rezervasyon bildirimine kadar tüm akış, gerçek zamanlı.</p>
+        <span class="eyebrow">Tanıtım &amp; Canlı Örnek Videolar</span>
+        <h2>Sistemimizi <span class="grad">1 dakikada</span> kendi gözünüzle görün</h2>
+        <p>Hem tüm işletmeler için genel tanıtım videomuzu hem de otel ve villalar için canlı rezervasyon örneğimizi izleyin.</p>
       </div>
-      <div class="demo-grid">
+
+      <div class="video-tabs reveal" role="tablist" aria-label="Video seçimi">
+        <button type="button" class="vtab active" data-video-tab="genel" role="tab" aria-selected="true">
+          <span class="vtab-ico">🎬</span> Genel Tanıtım <small>Tüm İşletmeler</small>
+        </button>
+        <button type="button" class="vtab" data-video-tab="otel" role="tab" aria-selected="false">
+          <span class="vtab-ico">🏨</span> Otel &amp; Villa Örneği <small>Rezervasyon Asistanı</small>
+        </button>
+      </div>
+
+      <!-- TAB 1: GENEL TANITIM -->
+      <div class="demo-grid video-panel active" id="vpanel-genel">
         <div class="video-wrap reveal">
           <div class="video-frame">
-            <video id="demoVideo" src="rezervasyon_asistani_demo.mp4" poster="video_kapak.jpg" controls playsinline preload="metadata"></video>
-            <button class="video-play" id="videoPlay" aria-label="Videoyu oynat"><span>▶</span></button>
+            <video class="site-video" id="genelVideo" src="duos_dijital_genel_tanitim.mp4" poster="genel_tanitim_kapak.jpg" controls playsinline preload="metadata"></video>
+            <button class="video-play" data-play-for="genelVideo" aria-label="Genel tanıtım videosunu oynat"><span>▶</span></button>
+          </div>
+          <div class="video-ring"></div>
+        </div>
+        <div class="demo-features">
+          <div class="feature reveal">
+            <div class="f-ico">🤖</div>
+            <div><h3>Her sektör için 7/24 yapay zeka asistanı</h3><p>Klinik, güzellik merkezi, emlak, e-ticaret, otel ve yerel işletmelerde WhatsApp, Instagram ve web sorularına 3 saniyede yanıt verir.</p></div>
+          </div>
+          <div class="feature reveal">
+            <div class="f-ico">🌐</div>
+            <div><h3>Modern web sitesi ve akıllı otomasyon</h3><p>Hızlı, mobil uyumlu web siteleri; otomatik e-posta, form, müşteri takibi ve randevu akışları tek çatı altında kurulur.</p></div>
+          </div>
+          <div class="feature reveal">
+            <div class="f-ico">🚀</div>
+            <div><h3>48 saatte kurulum, ücretsiz demo güvencesi</h3><p>Önce işletmenize özel demoyu görürsünüz. Beğenmezseniz hiçbir ücret ödemezsiniz.</p></div>
+          </div>
+          <a href="https://wa.me/905352251028?text=Merhaba%2C%20genel%20tan%C4%B1t%C4%B1m%20videonuzu%20izledim.%20%C4%B0%C5%9Fletmeme%20%C3%B6zel%20%C3%BCcretsiz%20demo%20istiyorum." target="_blank" rel="noopener" class="btn btn-primary magnetic reveal">İşletmeme Özel Ücretsiz Demo İstiyorum →</a>
+        </div>
+      </div>
+
+      <!-- TAB 2: OTEL & VİLLA ÖRNEĞİ -->
+      <div class="demo-grid video-panel" id="vpanel-otel">
+        <div class="video-wrap reveal">
+          <div class="video-frame">
+            <video class="site-video" id="demoVideo" src="rezervasyon_asistani_demo.mp4" poster="video_kapak.jpg" controls playsinline preload="metadata"></video>
+            <button class="video-play" data-play-for="demoVideo" aria-label="Otel rezervasyon videosunu oynat"><span>▶</span></button>
           </div>
           <div class="video-ring"></div>
         </div>
@@ -164,7 +201,7 @@
             <div class="f-ico">🔔</div>
             <div><h3>Hazır müşteri telefonunuza düşer</h3><p>Ciddi misafirin bilgilerini alır, ön rezervasyonu hazırlayıp size bildirir. Tek bir kurtarılan müşteri maliyeti çıkarır.</p></div>
           </div>
-          <a href="https://wa.me/905352251028?text=Merhaba%2C%20videoyu%20izledim.%20Tesisime%20%C3%B6zel%20%C3%BCcretsiz%20demo%20istiyorum." target="_blank" rel="noopener" class="btn btn-primary magnetic reveal">Tesisime Özel Ücretsiz Demo İstiyorum →</a>
+          <a href="https://wa.me/905352251028?text=Merhaba%2C%20otel%20rezervasyon%20videonuzu%20izledim.%20Tesisime%20%C3%B6zel%20%C3%BCcretsiz%20demo%20istiyorum." target="_blank" rel="noopener" class="btn btn-primary magnetic reveal">Tesisime Özel Ücretsiz Demo İstiyorum →</a>
         </div>
       </div>
     </div>
@@ -373,6 +410,23 @@
             <a href="mailto:duosdijitaldestek@gmail.com" class="c-item"><span>✉️</span><div><small>E-posta</small><b>duosdijitaldestek@gmail.com</b></div></a>
             <div class="c-item"><span>📍</span><div><small>Konum</small><b>Türkiye · Uzaktan 7/24 Hizmet</b></div></div>
           </div>
+          <div class="contact-socials">
+            <small class="cs-label">Sosyal medyadan doğrudan ulaşın</small>
+            <div class="cs-row">
+              <a href="https://www.instagram.com/duosdijital/?hl=tr" target="_blank" rel="noopener" class="cs-btn cs-ig" aria-label="Duos Dijital Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3Z"/></svg>
+                <span>Instagram</span>
+              </a>
+              <a href="https://www.tiktok.com/@duos.dijital" target="_blank" rel="noopener" class="cs-btn cs-tt" aria-label="Duos Dijital TikTok">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48Z"/></svg>
+                <span>TikTok</span>
+              </a>
+              <a href="https://www.linkedin.com/in/duosdijital" target="_blank" rel="noopener" class="cs-btn cs-li" aria-label="Duos Dijital LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z"/></svg>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
         </div>
         <form class="contact-form" id="contactForm">
           <label>Adınız<input type="text" name="ad" required placeholder="Adınız Soyadınız" /></label>
@@ -403,8 +457,9 @@
       <p>© <span id="year"></span> Duos Dijital · <a href="tel:+905352251028">0535 225 10 28</a> · <a href="mailto:duosdijitaldestek@gmail.com">duosdijitaldestek@gmail.com</a></p>
       <div class="socials">
         <a href="https://wa.me/905352251028" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/duosdijital/?hl=tr" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@duos.dijital" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.linkedin.com/in/duosdijital" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </footer>
@@ -425,6 +480,6 @@
     <a href="https://wa.me/905352251028?text=Merhaba%2C%20web%20sitenizden%20yaz%C4%B1yorum." target="_blank" rel="noopener" class="mb-wa">💬 WhatsApp'tan Yaz</a>
   </div>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
