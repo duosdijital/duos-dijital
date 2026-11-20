@@ -206,14 +206,31 @@ function calc() {
 }
 if (lostIn) { lostIn.addEventListener("input", calc); priceIn.addEventListener("input", calc); calc(); }
 
-// ============ VİDEO ============
-const video = $("#demoVideo"), vPlay = $("#videoPlay");
-if (video && vPlay) {
-  vPlay.addEventListener("click", () => { video.play(); });
-  video.addEventListener("play", () => vPlay.classList.add("hide"));
-  video.addEventListener("pause", () => vPlay.classList.remove("hide"));
-  video.addEventListener("ended", () => vPlay.classList.remove("hide"));
-}
+// ============ VİDEO & SEKMELER ============
+$$(".video-play").forEach(btn => {
+  const vid = document.getElementById(btn.dataset.playFor);
+  if (!vid) return;
+  btn.addEventListener("click", () => { vid.play(); });
+  vid.addEventListener("play", () => btn.classList.add("hide"));
+  vid.addEventListener("pause", () => btn.classList.remove("hide"));
+  vid.addEventListener("ended", () => btn.classList.remove("hide"));
+});
+
+const vTabs = $$("[data-video-tab]");
+vTabs.forEach(tab => tab.addEventListener("click", () => {
+  const key = tab.dataset.videoTab;
+  vTabs.forEach(t => {
+    const on = t === tab;
+    t.classList.toggle("active", on);
+    t.setAttribute("aria-selected", on ? "true" : "false");
+  });
+  $$(".site-video").forEach(v => { try { v.pause(); } catch {} });
+  $$(".video-panel").forEach(p => {
+    const on = p.id === `vpanel-${key}`;
+    p.classList.toggle("active", on);
+    if (on) $$(".reveal", p).forEach(el => el.classList.add("visible"));
+  });
+}));
 
 // ============ PAKET → FORM ============
 const hizmetSel = $("#hizmetSel");
